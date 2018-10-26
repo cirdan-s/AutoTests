@@ -178,17 +178,17 @@ public class FirstTest {
         waitForElementAndClick(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
                 "Cannot find Java article",
-                5);
+                15);
 
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options",
-                5);
+                15);
 
         waitForElementAndClick(
                 By.xpath("//*[@text='Add to reading list']"),
                 "Cannot find options to add article to reading list",
-                5);
+                15);
 
         waitForElementAndClick(
                 By.id("org.wikipedia:id/onboarding_button"),
@@ -338,7 +338,7 @@ public class FirstTest {
         TouchAction action = new TouchAction(driver);
         action
                 .press(rightX, middleY)
-                .waitAction(150)
+                .waitAction(300)
                 .moveTo(leftX, middleY)
                 .release()
                 .perform();
