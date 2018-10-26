@@ -1,4 +1,3 @@
-import com.gargoylesoftware.htmlunit.javascript.host.Touch;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -8,14 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class FirstTest {
 
@@ -178,17 +180,17 @@ public class FirstTest {
         waitForElementAndClick(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
                 "Cannot find Java article",
-                15);
+                5);
 
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options",
-                15);
+                5);
 
         waitForElementAndClick(
                 By.xpath("//*[@text='Add to reading list']"),
                 "Cannot find options to add article to reading list",
-                15);
+                5);
 
         waitForElementAndClick(
                 By.id("org.wikipedia:id/onboarding_button"),
@@ -239,6 +241,40 @@ public class FirstTest {
 
     }
 
+    @Test
+    public void testAmountOfNotEmptySearch() {
+
+        String searchLine = "Linkin Park Discography";
+        String searchResultLocator = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']";
+        int amountOfSearchResults;
+
+
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find 'search Wikipedia' input");
+
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text,'Search…')]"),
+                searchLine,
+                "Cannot find search input",
+                5);
+
+        waitForElementPresent(
+                By.xpath(searchResultLocator),
+                "Cannot find anything by the request: " + searchLine,
+                15);
+
+        amountOfSearchResults = getAmountOfElements(
+                By.xpath(searchResultLocator)
+        );
+
+        assertTrue(
+                "We've found too few results!",
+                amountOfSearchResults > 0);
+
+    }
+
+
     private WebElement waitForElementPresent(By by, String errorMessage, long timeoutInSeconds) {
 
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -254,13 +290,34 @@ public class FirstTest {
 
     }
 
-    private WebElement waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds) {
+    private void waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds) {
 
         WebElement element = waitForElementPresent(by, errorMessage, timeoutInSeconds);
+
+
+        for (int i = 1; i <= 5; i++) {
+            try {
+                element.click();
+                //return element;
+
+            } catch (NoSuchElementException e) {
+                System.out.println("Cannot find element by " + by + " in 5 tries");
+                System.out.println(e);
+             }
+        }
+
+        Assert.fail("Element " + by + " was not found");
+    }
+
+    private void waitForElementAndClick(By by, String errorMessage) {
+
+        WebElement element = waitForElementPresent(by, errorMessage, 5);
         element.click();
-        return element;
+        //return element;
 
     }
+
+
 
     private WebElement waitForElementAndSendKeys(By by, String value, String errorMessage, long timeoutInSeconds) {
 
@@ -342,6 +399,13 @@ public class FirstTest {
                 .moveTo(leftX, middleY)
                 .release()
                 .perform();
+    }
+
+    private int getAmountOfElements(By by) {
+
+        List elements = driver.findElements(by);
+        return elements.size();
+
     }
 
 }
