@@ -44,92 +44,6 @@ public class FirstTest {
     }
 
     @Test
-    public void firstTest() {
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
-                "Cannot find 'search Wikipedia' input",
-                5);
-
-        waitForElementAndSendKeys(
-                By.xpath("//*[contains(@text,'Search…')]"),
-                "Java",
-                "Cannot find search input",
-                5);
-
-        waitForElementPresent(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
-                "Cannot find ORPL topic",
-                15);
-    }
-
-
-    @Test
-    public void testCancelSearch() {
-
-        waitForElementAndClick(
-             By.id("org.wikipedia:id/search_container"),
-             "Cannot find 'search Wikipedia' input",
-             5);
-
-        waitForElementAndSendKeys(
-                By.xpath("//*[contains(@text,'Search…')]"),
-                "Java",
-                "Cannot find search input",
-                5);
-
-        waitForElementAndClear(
-                By.id("org.wikipedia:id/search_src_text"),
-                "Cannot find search field",
-                5);
-
-        waitForElementAndClick(
-                By.id("org.wikipedia:id/search_close_btn"),
-                "Cannot find X to cancel Search",
-                5);
-
-        waitForElementNotPresent(
-                By.id("org.wikipedia:id/search_close_btn"),
-                "X is still present on the page",
-                5);
-
-    }
-
-    @Test
-    public void testCompareArticleTitle() {
-
-        waitForElementAndClick(
-                By.id("org.wikipedia:id/search_container"),
-                "Cannot find 'search Wikipedia' input",
-                5);
-
-        waitForElementAndSendKeys(
-                By.xpath("//*[contains(@text,'Search…')]"),
-                "Java",
-                "Cannot find search input",
-                5);
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
-                "Cannot find Java article",
-                5);
-
-        WebElement titleElement = waitForElementPresent(
-                By.id("org.wikipedia:id/view_page_title_text"),
-                "Cannot find article title",
-                15);
-
-        String acticleTitle = titleElement.getAttribute("text");
-
-        Assert.assertEquals(
-                "We see unexpected title",
-                "Java (programming language)",
-                acticleTitle);
-
-    }
-
-
-    @Test
     public void testSwipeArticle() {
 
         waitForElementAndClick(
@@ -162,81 +76,220 @@ public class FirstTest {
 
 
     @Test
-    public void saveFirstArticleToMyList() {
+    public void saveTwoArticleToMyListAndDeleteOne() {
 
+        //Нажимаем в строку поиска
         waitForElementAndClick(
-                By.id("org.wikipedia:id/search_container"),
-                "Cannot find 'search Wikipedia' input"
-                );
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find 'search Wikipedia' input",
+                5
+        );
 
+        //Отправляем поисковый запрос
         waitForElementAndSendKeys(
                 By.xpath("//*[contains(@text,'Search…')]"),
                 "Java",
                 "Cannot find search input",
-                5);
+                5
+        );
 
+        //Нажимаем на искомую статью
         waitForElementAndClick(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
                 "Cannot find Java article",
                 5
                 );
 
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //Нажимаем на меню "три точки"
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
-                "Cannot find button to open article options"
-                );
+                "Cannot find button to open article options",
+                5
+        );
 
+        //Нажимаем на пункт меню "Добавить в список для чтения"
         waitForElementAndClick(
                 By.xpath("//*[@text='Add to reading list']"),
-                "Cannot find options to add article to reading list"
-                );
+                "Cannot find options to add article to reading list",
+                10
+        );
 
+        //Нажимаем кнопку "GOT IT"
         waitForElementAndClick(
                 By.id("org.wikipedia:id/onboarding_button"),
-                "Cannot find GOT IT button"
-                );
+                "Cannot find GOT IT button",
+                5
+        );
 
+        //Удаляем дефолтное название списка для чтения
         waitForElementAndClear(
                 By.id("org.wikipedia:id/text_input"),
                 "Cannot find Reading list name input",
-                5);
+                5
+        );
 
         String nameOfFolder = "Learning programming";
 
+        //Набираем нужное название списка для чтения
         waitForElementAndSendKeys(
                 By.id("org.wikipedia:id/text_input"),
                 nameOfFolder,
                 "Cannot put text into article folder input",
-                5);
+                5
+        );
 
+        //Нажимаем ОК
         waitForElementAndClick(
                 By.xpath("//*[@text='OK']"),
-                "Cannot press OK button"
-                );
+                "Cannot press OK button",
+                5
+        );
 
+        //Нажимаем на меню "три точки"
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
-                "Cannot close article, cannot find X link"
-                );
+                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
+                "Cannot find button to open article options",
+                5
+        );
 
+        //Нажимаем пункт меню "Similar pages"
         waitForElementAndClick(
-                By.xpath("//android.widget.FrameLayout[@content-desc='My lists']"),
-                "Cannot navigation button to my list"
-                );
+                By.xpath("//*[@text='Similar pages']"),
+                "Cannot similar pages option",
+                5
+        );
 
+        //Определяем есть ли в списке хотя бы 1 статья
+
+        String searchResultLocator = "//*[@resource-id='org.wikipedia:id/disambig_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']";
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        int amountOfSearchResults = getAmountOfElements(
+                By.xpath(searchResultLocator)
+        );
+
+        assertTrue(
+                "We've found too few results!",
+                amountOfSearchResults > 0);
+
+        //Название первой статьи записываем в переменную
+        String similarAcricleTitle = waitForElementAndGetAttribute(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title']"),
+                "text",
+                "",
+                5
+        );
+
+
+        //Нажимаем на первую статью из списка
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title']"),
+                "Cannot find button to open article options",
+                5
+        );
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //Нажимаем на меню "три точки"
+        waitForElementAndClick(
+                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
+                "Cannot find button to open article options",
+                5
+        );
+
+        //Нажимаем на пункт меню "Добавить в список для чтения"
+        waitForElementAndClick(
+                By.xpath("//*[@text='Add to reading list']"),
+                "Cannot find options to add article to reading list",
+                5
+        );
+
+/*        //Проверяем есть ли нужный список для чтения
+        waitForElementPresent(
+                By.xpath("//*[resource-id='org.wikipedia:id/item_title']//*[@text='" + nameOfFolder + "']"),
+                "Cannot find reading list to add article",
+                5
+        );
+*/
+        //Выбираем тот же список для чтения, куда уже была добавлена первая статья     [@text='" + nameOfFolder + "']
         waitForElementAndClick(
                 By.xpath("//*[@text='" + nameOfFolder + "']"),
-                "Cannot find created folder"
-                );
+                "Cannot click on reading list",
+                5
+        );
 
+        //By.xpath("//*[resource-id='org.wikipedia:id/lists_container']//*[@org.wikipedia:id/item_title/*[@text='Learning programming']")
+
+        //Закрываем статью
+        waitForElementAndClick(
+                By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
+                "Cannot close article, cannot find X link",
+                5
+        );
+
+        //Переходим к спискам для чтения
+        waitForElementAndClick(
+                By.xpath("//android.widget.FrameLayout[@content-desc='My lists']"),
+                "Cannot navigation button to my list",
+                5
+        );
+
+        //Переходим в нужный список для чтения
+        waitForElementAndClick(
+                By.xpath("//*[@text='" + nameOfFolder + "']"),
+                "Cannot find created folder",
+                5);
+
+        //Удаляем первую добавленную статью
         swipeElementToLeft(
                 By.xpath("//*[@text='Java (programming language)']"),
-                "Cannot delete saved article");
+                "Cannot delete saved article"
+        );
 
+        //Убеждаемся, что статья удалена
         waitForElementNotPresent(
                 By.xpath("//*[@text='Java (programming language)']"),
                 "Cannot find saved article",
-                5);
+                5
+        );
+
+        //Открываем вторую сохраненную статью
+        waitForElementAndClick(
+                By.xpath("//*[@recource-id='org.wikipedia:id/page_list_item_container'"),
+                "Cannot click on second acticle title",
+                5
+        );
+
+        //Получаем заголовок статьи
+        String articleTitleInList = waitForElementAndGetAttribute(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title']"),
+                "text",
+                "",
+                5
+        );
+
+        //Сравниваем с ранее сохраненным заголовком
+        Assert.assertEquals(
+                "We see unexpected title",
+                similarAcricleTitle,
+                articleTitleInList
+        );
 
     }
 
@@ -250,7 +303,8 @@ public class FirstTest {
 
         waitForElementAndClick(
                 By.xpath("//*[contains(@text,'Search Wikipedia')]"),
-                "Cannot find 'search Wikipedia' input");
+                "Cannot find 'search Wikipedia' input",
+                5);
 
         waitForElementAndSendKeys(
                 By.xpath("//*[contains(@text,'Search…')]"),
