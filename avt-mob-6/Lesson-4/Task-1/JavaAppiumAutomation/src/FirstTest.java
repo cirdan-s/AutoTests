@@ -74,11 +74,12 @@ public class FirstTest {
                 );
         System.out.println("Шаг 3 успешно (Нажимаем на искомую статью)");
 
+        waitSeconds(5);
+
         //4 Нажимаем на меню "три точки"
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options"
-
         );
 
         System.out.println("Шаг 4 успешно (Нажимаем на меню \"три точки\")");
@@ -131,11 +132,12 @@ public class FirstTest {
 
         System.out.println("Шаг 9 успешно (Нажимаем ОК)");
 
+        waitSeconds(5);
+
         //10 Нажимаем на меню "три точки"
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options"
-
         );
 
         System.out.println("Шаг 10 успешно (Нажимаем на меню \"три точки\")");
@@ -185,11 +187,12 @@ public class FirstTest {
 
         System.out.println("Шаг 14 успешно (Нажимаем на первую статью из списка)");
 
+        waitSeconds(5);
+
         //15 Нажимаем на меню "три точки"
         waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_toolbar']/*[@content-desc='More options']"),
-                "Cannot find button to open article options",
-                5
+                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
+                "Cannot find button to open article options"
         );
 
         System.out.println("Шаг 15 успешно (Нажимаем на меню \"три точки\")");
@@ -319,15 +322,14 @@ public class FirstTest {
             try {
                 element.click();
                 waitSeconds(1);
-                return;
 
             } catch (NoSuchElementException e) {
                 System.out.println("Cannot find element by " + by + " in " + i + " tries");
                 System.out.println(e);
-                Assert.fail("Element " + by + " was not found");
             }
         }
 
+        Assert.fail("Element " + by + " was not found");
 
     }
 
