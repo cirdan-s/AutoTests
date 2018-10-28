@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ecce79e-442e-4157-b457-3395173c0b19" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Task-1/JavaAppiumAutomation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task-1/JavaAppiumAutomation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FirstTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,20 +133,22 @@
     <session id="1177362930">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.144" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="175" />
+          <entry key="java" value="362" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="175" />
+          <entry key="JAVA" value="362" />
         </counts>
       </usages-collector>
     </session>
@@ -155,20 +158,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+            <state relative-caret-position="299">
+              <caret line="235" column="19" selection-start-line="235" selection-start-column="19" selection-end-line="235" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/net/SocketInputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -192,7 +186,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="60" />
     <option name="y" value="23" />
     <option name="width" value="1731" />
@@ -205,6 +199,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,11 +221,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540673334626" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540754388068" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -332,24 +326,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_testAmountOfEmptySearch - 2018.10.27 at 13h 08m 16s.xml">
-      <configuration name="FirstTest.testAmountOfEmptySearch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testAmountOfEmptySearch - 2018.10.27 at 13h 23m 05s.xml">
-      <configuration name="FirstTest.testAmountOfEmptySearch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreenOrientationOnSearchResults - 2018.10.27 at 13h 51m 42s.xml">
-      <configuration name="FirstTest.testChangeScreenOrientationOnSearchResults" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreenOrientationOnSearchResults - 2018.10.27 at 13h 53m 10s.xml">
-      <configuration name="FirstTest.testChangeScreenOrientationOnSearchResults" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreenOrientationOnSearchResults - 2018.10.27 at 13h 55m 33s.xml">
-      <configuration name="FirstTest.testChangeScreenOrientationOnSearchResults" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreenOrientationOnSearchResults - 2018.10.27 at 13h 58m 39s.xml">
-      <configuration name="FirstTest.testChangeScreenOrientationOnSearchResults" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FirstTest_testSearchActicleInBackgound - 2018.10.27 at 14h 08m 16s.xml">
       <configuration name="FirstTest.testSearchActicleInBackgound" configurationId="JUnit" />
     </history-entry>
@@ -362,12 +338,30 @@
     <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.27 at 23h 45m 48s.xml">
       <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 19h 39m 12s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 19h 40m 06s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 19h 40m 33s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 20h 35m 56s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 21h 58m 17s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testCheckIfArticleTitleIsPresent - 2018.10.28 at 22h 11m 42s.xml">
+      <configuration name="FirstTest.testCheckIfArticleTitleIsPresent" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -376,7 +370,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -405,20 +399,27 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
+    <entry file="jar://$PROJECT_DIR$/libs/selenium-server-standalone-3.4.0.jar!/org/openqa/selenium/support/ui/WebDriverWait.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/net/SocketInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
+        <state relative-caret-position="840">
           <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="235" column="19" selection-start-line="235" selection-start-column="19" selection-end-line="235" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
