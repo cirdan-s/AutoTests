@@ -71,13 +71,13 @@ public class FirstTest {
                 );
         System.out.println("Шаг 3 успешно (Нажимаем на искомую статью)");
 
-        waitSeconds(5);
+        waitSeconds(15);
 
         //4 Нажимаем на меню "три точки"
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
-                "Cannot find button to open article options"
-
+                By.xpath("//*[@content-desc='More options']"),
+                "Cannot find button to open article options",
+                5
         );
 
         System.out.println("Шаг 4 успешно (Нажимаем на меню \"три точки\")");
@@ -130,13 +130,13 @@ public class FirstTest {
 
         System.out.println("Шаг 9 успешно (Нажимаем ОК)");
 
-        waitSeconds(5);
+        waitSeconds(15);
 
         //10 Нажимаем на меню "три точки"
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
-                "Cannot find button to open article options"
-
+                By.xpath("//*[@content-desc='More options']"),
+                "Cannot find button to open article options",
+                5
         );
 
         System.out.println("Шаг 10 успешно (Нажимаем на меню \"три точки\")");
@@ -186,13 +186,17 @@ public class FirstTest {
 
         System.out.println("Шаг 14 успешно (Нажимаем на первую статью из списка)");
 
-        waitSeconds(5);
+        waitSeconds(15);
 
-        //15 Нажимаем на меню "три точки"
+        swipeUp(3);
+
+        System.out.println("Шаг 14-1 успешно");
+
+/*        //15 Нажимаем на меню "три точки"
         waitForElementAndClick(
-                By.xpath("//android.widget.ImageView[@content-desc='More options']"),
-                "Cannot find button to open article options"
-
+                By.xpath("//*[@content-desc='More options']"),
+                "Cannot find button to open article options",
+                5
         );
 
         System.out.println("Шаг 15 успешно (Нажимаем на меню \"три точки\")");
@@ -206,7 +210,7 @@ public class FirstTest {
 
         System.out.println("Шаг 16 успешно (Нажимаем на пункт меню \"Добавить в список для чтения\")");
 
-/*        //17 Проверяем есть ли нужный список для чтения
+        //17 Проверяем есть ли нужный список для чтения
         waitForElementPresent(
                 By.xpath("//*[resource-id='org.wikipedia:id/item_title']//*[@text='" + nameOfFolder + "']"),
                 "Cannot find reading list to add article",
@@ -215,6 +219,15 @@ public class FirstTest {
 
         System.out.println("Шаг 17 успешно (Проверяем есть ли нужный список для чтения)");
 */
+
+        //New step - Нажимаем на кнопку "Добавить в список для чтения
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_actions_tab_layout']/*[@content-desc='Add this article to a reading list']"),
+                "Cannot click on Add to reading list button"
+
+        );
+
+
         //18 Выбираем тот же список для чтения, куда уже была добавлена первая статья
         waitForElementAndClick(
                 By.xpath("//*[@text='" + nameOfFolder + "']"),
@@ -227,8 +240,8 @@ public class FirstTest {
         //19 Закрываем статью
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
-                "Cannot close article, cannot find X link",
-                5
+                "Cannot close article, cannot find X link"
+
         );
 
         System.out.println("Шаг 19 успешно (Закрываем статью)");
