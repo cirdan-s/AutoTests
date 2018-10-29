@@ -1,7 +1,6 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import org.apache.xalan.xsltc.dom.SimpleResultTreeImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,10 +9,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.net.URL;
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -32,8 +29,8 @@ public class FirstTest {
         capabilites.setCapability("automationName", "Appium");
         capabilites.setCapability("appPackage", "org.wikipedia");
         capabilites.setCapability("appActivity", ".main.MainActivity");
-        // capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-4/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
-        capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
+        capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-4/Task-1/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
+        //capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilites);
     }
@@ -80,6 +77,7 @@ public class FirstTest {
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options"
+
         );
 
         System.out.println("Шаг 4 успешно (Нажимаем на меню \"три точки\")");
@@ -138,6 +136,7 @@ public class FirstTest {
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options"
+
         );
 
         System.out.println("Шаг 10 успешно (Нажимаем на меню \"три точки\")");
@@ -193,6 +192,7 @@ public class FirstTest {
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options"
+
         );
 
         System.out.println("Шаг 15 успешно (Нажимаем на меню \"три точки\")");
@@ -206,7 +206,7 @@ public class FirstTest {
 
         System.out.println("Шаг 16 успешно (Нажимаем на пункт меню \"Добавить в список для чтения\")");
 
-        //17 Проверяем есть ли нужный список для чтения
+/*        //17 Проверяем есть ли нужный список для чтения
         waitForElementPresent(
                 By.xpath("//*[resource-id='org.wikipedia:id/item_title']//*[@text='" + nameOfFolder + "']"),
                 "Cannot find reading list to add article",
@@ -214,7 +214,7 @@ public class FirstTest {
         );
 
         System.out.println("Шаг 17 успешно (Проверяем есть ли нужный список для чтения)");
-
+*/
         //18 Выбираем тот же список для чтения, куда уже была добавлена первая статья
         waitForElementAndClick(
                 By.xpath("//*[@text='" + nameOfFolder + "']"),
@@ -320,12 +320,17 @@ public class FirstTest {
 
         for (int i = 1; i < 5; i++) {
             try {
+                System.out.println("Trying to click");
                 element.click();
+                System.out.println("Successful click");
                 waitSeconds(1);
+                return;
 
             } catch (NoSuchElementException e) {
+                System.out.println("Couldn't click!");
                 System.out.println("Cannot find element by " + by + " in " + i + " tries");
                 System.out.println(e);
+                Assert.fail("Element " + by + " was not found");
             }
         }
 
