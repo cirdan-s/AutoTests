@@ -11,10 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.URL;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class FirstTest {
+
+public class FirstTestRefactor {
 
     private AppiumDriver driver;
 
@@ -34,6 +33,7 @@ public class FirstTest {
         capabilites.setCapability("noReset", "true");
         //capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
 
+
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilites);
     }
 
@@ -43,9 +43,8 @@ public class FirstTest {
         driver.quit();
     }
 
-
     @Test
-    public void saveTwoArticleToMyListAndDeleteOne() {
+    public void saveTwoArticleToMyListAndDeleteOneInOtherWay() {
 
         //1 Нажимаем в строку поиска
         waitForElementAndClick(
@@ -71,7 +70,7 @@ public class FirstTest {
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
                 "Cannot find Java article",
                 5
-                );
+        );
         System.out.println("Шаг 3 успешно (Нажимаем на искомую статью)");
 
         waitSeconds(15);
@@ -133,168 +132,136 @@ public class FirstTest {
 
         System.out.println("Шаг 9 успешно (Нажимаем ОК)");
 
+        //10 Закрываем статью
+        waitForElementAndClick(
+                By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
+                "Cannot close article, cannot find X link",
+                5
+        );
+
+        System.out.println("Шаг 10 успешно (Закрываем статью)");
+
+        //11 Нажимаем в строку поиска
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find 'search Wikipedia' input",
+                5
+        );
+
+        System.out.println("Шаг 11 успешно (Нажимаем в строку поиска)");
+
+        //12 Отправляем поисковый запрос
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text,'Search…')]"),
+                "Chivas Regal",
+                "Cannot find search input",
+                5
+        );
+
+        System.out.println("Шаг 12 успешно (Отправляем поисковый запрос)");
+
+        //13 Нажимаем на искомую статью
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Blended Scotch Whisky produced by Chivas Brothers']"),
+                "Cannot find Java article",
+                5
+        );
+        System.out.println("Шаг 13 успешно (Нажимаем на искомую статью)");
+
         waitSeconds(15);
 
-        //10 Нажимаем на меню "три точки"
-        waitForElementAndClick(
-                By.xpath("//*[@content-desc='More options']"),
-                "Cannot find button to open article options",
-                5
-        );
-
-        System.out.println("Шаг 10 успешно (Нажимаем на меню \"три точки\")");
-
-        //11 Нажимаем пункт меню "Similar pages"
-        waitForElementAndClick(
-                By.xpath("//*[@text='Similar pages']"),
-                "Cannot similar pages option",
-                5
-        );
-
-        System.out.println("Шаг 11 успешно (Нажимаем пункт меню \"Similar pages\")");
-
-        //12 Определяем есть ли в списке хотя бы 1 статья
-
-        String searchResultLocator = "//*[@resource-id='org.wikipedia:id/disambig_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']";
-
-        waitSeconds(5);
-
-        int amountOfSearchResults = getAmountOfElements(
-                By.xpath(searchResultLocator)
-        );
-
-        assertTrue(
-                "We've found too few results!",
-                amountOfSearchResults > 0);
-
-        System.out.println("Шаг 12 успешно (Определяем есть ли в списке хотя бы 1 статья)");
-
-        //13 Название первой статьи записываем в переменную
+        //13-1 Название первой статьи записываем в переменную
         String similarAcricleTitle = waitForElementAndGetAttribute(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title']"),
+                By.xpath("//*[@resource-id='org.wikipedia:id/view_page_title_text']"),
                 "text",
-                "",
+                "Cannot read article title",
                 5
         );
 
         System.out.println("Шаг 13 успешно, название статьи: " + similarAcricleTitle);
 
-
-        //14 Нажимаем на первую статью из списка
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_title']"),
-                "Cannot find button to open article options",
-                5
-        );
-
-        System.out.println("Шаг 14 успешно (Нажимаем на первую статью из списка)");
-
-        waitSeconds(5);
-
-        //15 Нажимаем на меню "три точки"
+        //14 Нажимаем на меню "три точки"
         waitForElementAndClick(
                 By.xpath("//*[@content-desc='More options']"),
                 "Cannot find button to open article options",
                 5
         );
 
-        System.out.println("Шаг 15 успешно (Нажимаем на меню \"три точки\")");
+        System.out.println("Шаг 14 успешно (Нажимаем на меню \"три точки\")");
 
-        //16 Нажимаем на пункт меню "Добавить в список для чтения"
+        //15 Нажимаем на пункт меню "Добавить в список для чтения"
         waitForElementAndClick(
                 By.xpath("//*[@text='Add to reading list']"),
                 "Cannot find options to add article to reading list",
                 5
         );
 
-        System.out.println("Шаг 16 успешно (Нажимаем на пункт меню \"Добавить в список для чтения\")");
+        System.out.println("Шаг 15 успешно (Нажимаем на пункт меню \"Добавить в список для чтения\")");
 
-/*        //17 Проверяем есть ли нужный список для чтения
-        waitForElementPresent(
-                By.xpath("//*[resource-id='org.wikipedia:id/item_title']//*[@text='" + nameOfFolder + "']"),
-                "Cannot find reading list to add article",
-                5
-        );
-
-        System.out.println("Шаг 17 успешно (Проверяем есть ли нужный список для чтения)");
-
-
-        waitForElementPresent(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='" + similarAcricleTitle + "']"),
-                "Cannot article after returning from background",
-                5);
-
-
-        //New step - Нажимаем на кнопку "Добавить в список для чтения
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_actions_tab_layout']/*[@content-desc='Add this article to a reading list']"),
-                "Cannot click on Add to reading list button"
-
-        );
-
-*/
-        //18 Выбираем тот же список для чтения, куда уже была добавлена первая статья
+        //16 Выбираем тот же список для чтения, куда уже была добавлена первая статья
         waitForElementAndClick(
                 By.xpath("//*[@text='" + nameOfFolder + "']"),
                 "Cannot click on reading list",
                 5
         );
 
-        System.out.println("Шаг 18 успешно (Выбираем тот же список для чтения, куда уже была добавлена первая статья)");
+        System.out.println("Шаг 16 успешно (Выбираем тот же список для чтения, куда уже была добавлена первая статья)");
 
-        //19 Закрываем статью
+        //swipeUp(4);
+
+        //17 Закрываем статью
         waitForElementAndClick(
                 By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"),
-                "Cannot close article, cannot find X link"
-
+                "Cannot close article, cannot find X link",
+                5
         );
 
-        System.out.println("Шаг 19 успешно (Закрываем статью)");
+        System.out.println("Шаг 17 успешно (Закрываем статью)");
 
-        //20 Переходим к спискам для чтения
+        //18 Переходим к спискам для чтения
         waitForElementAndClick(
                 By.xpath("//android.widget.FrameLayout[@content-desc='My lists']"),
                 "Cannot navigation button to my list",
                 5
         );
 
-        System.out.println("Шаг 20 успешно (Переходим к спискам для чтения)");
+        System.out.println("Шаг 18 успешно (Переходим к спискам для чтения)");
 
-        //21 Переходим в нужный список для чтения
+        //19 Переходим в нужный список для чтения
         waitForElementAndClick(
                 By.xpath("//*[@text='" + nameOfFolder + "']"),
                 "Cannot find created folder",
                 5);
 
-        System.out.println("Шаг 21 успешно (Переходим в нужный список для чтения)");
+        System.out.println("Шаг 19 успешно (Переходим в нужный список для чтения)");
 
-        //22 Удаляем первую добавленную статью
+        //20 Удаляем первую добавленную статью
         swipeElementToLeft(
                 By.xpath("//*[@text='Java (programming language)']"),
                 "Cannot delete saved article"
         );
 
-        System.out.println("Шаг 22 успешно (Удаляем первую добавленную статью)");
+        System.out.println("Шаг 20 успешно (Удаляем первую добавленную статью)");
 
-        //23 Убеждаемся, что статья удалена
+        //21 Убеждаемся, что статья удалена
         waitForElementNotPresent(
                 By.xpath("//*[@text='Java (programming language)']"),
                 "Cannot find saved article",
                 5
         );
 
-        System.out.println("Шаг 23 успешно (Убеждаемся, что статья удалена)");
+        System.out.println("Шаг 21 успешно (Убеждаемся, что статья удалена)");
 
-        //24 Открываем вторую сохраненную статью
+        //22 Открываем вторую сохраненную статью
         waitForElementAndClick(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']"),
-                "Cannot click on second article title",
+                "Cannot click on second acticle title",
                 5
         );
 
-        System.out.println("Шаг 24 успешно (Открываем вторую сохраненную статью)");
+        System.out.println("Шаг 22 успешно (Открываем вторую сохраненную статью)");
 
-        //25 Получаем заголовок статьи
+        //23 Получаем заголовок статьи
         String articleTitleInList = waitForElementAndGetAttribute(
                 By.xpath("//*[@resource-id='org.wikipedia:id/view_page_title_text']"),
                 "text",
@@ -302,24 +269,26 @@ public class FirstTest {
                 5
         );
 
-        System.out.println("Шаг 25 успешно, заголовок статьи: " + articleTitleInList);
+        System.out.println("Шаг 23 успешно, заголовок статьи: " + articleTitleInList);
 
-        //26 Сравниваем с ранее сохраненным заголовком
+        //24 Сравниваем с ранее сохраненным заголовком
         Assert.assertEquals(
                 "We see unexpected title",
                 similarAcricleTitle,
                 articleTitleInList
         );
 
-        System.out.println("Шаг 26 успешно (Сравниваем с ранее сохраненным заголовком)");
+        System.out.println("Шаг 24 успешно (Сравниваем с ранее сохраненным заголовком)");
 
         System.out.println("Actual result: " + similarAcricleTitle);
         System.out.println("Expected result: " + articleTitleInList);
 
+
+
     }
 
 
-// ---------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // Test methods
 
     private WebElement waitForElementPresent(By by, String errorMessage, long timeoutInSeconds) {
@@ -423,8 +392,8 @@ public class FirstTest {
                 waitForElementPresent(by, "Cannot find element by swiping up \n" + errorMessage, 0);
                 return;
             }
-        swipeUpQuick();
-        ++alreadySwiped;
+            swipeUpQuick();
+            ++alreadySwiped;
         }
 
     }
