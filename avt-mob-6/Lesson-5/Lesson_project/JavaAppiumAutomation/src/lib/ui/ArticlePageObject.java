@@ -51,17 +51,20 @@ public class ArticlePageObject extends MainPageObject {
 
         this.waitForElementAndClick(
                 By.xpath(OPTIONS_BUTTON),
-                "Cannot find button to open article options"
+                "Cannot find button to open article options",
+                5
         );
 
         this.waitForElementAndClick(
                 By.xpath(OPTIONS_ADD_TO_MY_LIST_BUTTON),
-                "Cannot find options to add article to reading list"
+                "Cannot find options to add article to reading list",
+                5
         );
 
         this.waitForElementAndClick(
                 By.id(ADD_TO_MY_LIST_OVERLAY),
-                "Cannot find GOT IT button"
+                "Cannot find GOT IT button",
+                5
         );
 
         this.waitForElementAndClear(
@@ -78,7 +81,8 @@ public class ArticlePageObject extends MainPageObject {
 
         this.waitForElementAndClick(
                 By.xpath(MY_LIST_OK_BUTTON),
-                "Cannot press OK button"
+                "Cannot press OK button",
+                5
         );
 
     }
@@ -87,7 +91,8 @@ public class ArticlePageObject extends MainPageObject {
 
         this.waitForElementAndClick(
                 By.xpath(CLOSE_ARTICLE_BUTTON),
-                "Cannot close article, cannot find X link"
+                "Cannot close article, cannot find X link",
+                5
         );
 
     }

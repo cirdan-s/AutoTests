@@ -24,14 +24,14 @@ public class FirstTestRefactor {
 
         capabilites.setCapability("platformName", "Android");
         capabilites.setCapability("deviceName", "AndroidTestDevice");
-        capabilites.setCapability("udid", "b66fb853");
+        //capabilites.setCapability("udid", "b66fb853");
         capabilites.setCapability("platformVersion", "4.4.2");
         capabilites.setCapability("automationName", "Appium");
         capabilites.setCapability("appPackage", "org.wikipedia");
         capabilites.setCapability("appActivity", ".main.MainActivity");
-        capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-4/Task-1/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
+        //capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-4/Task-1/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
         capabilites.setCapability("noReset", "true");
-        //capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
+        capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
 
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilites);

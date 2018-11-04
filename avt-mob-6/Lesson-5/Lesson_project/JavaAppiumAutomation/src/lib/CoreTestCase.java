@@ -2,6 +2,7 @@ package lib;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 import junit.framework.TestCase;
@@ -24,13 +25,14 @@ public class CoreTestCase extends TestCase {
         capabilites.setCapability("appPackage", "org.wikipedia");
         capabilites.setCapability("appActivity", ".main.MainActivity");
         capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-5/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
-//      capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
+        capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-5\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
 
-        capabilites.setCapability("noReset", "true");
+/*        capabilites.setCapability("noReset", "true");
         capabilites.setCapability("udid", "b66fb853");
-        capabilites.setCapability("platformVersion", "4.4.2");
+*/        capabilites.setCapability("platformVersion", "7.1");
 
         driver = new AndroidDriver(new URL(AppiumURL), capabilites);
+        this.rotateScreenPortrait();
     }
 
     @Override
@@ -40,5 +42,22 @@ public class CoreTestCase extends TestCase {
         super.tearDown();
     }
 
+    protected void rotateScreenPortrait(){
+
+        driver.rotate(ScreenOrientation.PORTRAIT);
+
+    }
+
+    protected void rotateScreenLandscape(){
+
+        driver.rotate(ScreenOrientation.LANDSCAPE);
+
+    }
+
+    protected void backgrounApp(int seconds){
+
+        driver.runAppInBackground(seconds);
+
+    }
 
 }

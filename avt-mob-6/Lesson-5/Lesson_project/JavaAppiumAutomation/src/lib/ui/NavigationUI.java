@@ -18,7 +18,8 @@ public class NavigationUI extends MainPageObject {
 
         this.waitForElementAndClick(
                 By.xpath(MY_LISTS_LINK),
-                "Cannot navigation button to my list"
+                "Cannot navigation button to my list",
+                5
         );
 
     }

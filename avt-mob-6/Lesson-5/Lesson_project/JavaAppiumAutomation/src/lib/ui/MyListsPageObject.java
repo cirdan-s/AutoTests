@@ -18,7 +18,7 @@ public class MyListsPageObject extends MainPageObject {
     /* TEMPLATES METHODS */
     private static String getFolderXpathByName(String nameOfFolder){
 
-        return NAME_OF_FOLDER_IN_LIST_TPL.replace("{SUBSTRING}", nameOfFolder);
+        return NAME_OF_FOLDER_IN_LIST_TPL.replace("{FOLDER_NAME}", nameOfFolder);
     }
 
     private static String getSavedArticleXpathByTitle(String articleName) {
@@ -37,7 +37,8 @@ public class MyListsPageObject extends MainPageObject {
         String folderNameXpath = getFolderXpathByName(nameOfFolder);
         this.waitForElementAndClick(
                 By.xpath(folderNameXpath),
-                "Cannot find folder by name" + nameOfFolder
+                "Cannot find folder by name" + nameOfFolder,
+                5
         );
 
     }
