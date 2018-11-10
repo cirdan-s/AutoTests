@@ -15,7 +15,9 @@ public class SearchPageObject extends MainPageObject {
             SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='{SUBSTRING}']",
             SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
             EMPTY_RESULT_RESULT_ELEMENT = "//*[@text='No results found']",
-            SEARCH_RESULT_ITEM_TITLE = "org.wikipedia:id/page_list_item_title";
+            SEARCH_RESULT_ITEM_TITLE = "org.wikipedia:id/page_list_item_title",
+            SEARCH_ELEMENT_TITLE_DESCRIPTION_TPL = "//android.widget.TextView[@text='{DESCRIPTION}']/preceding-sibling::android.widget.TextView[@text='{TITLE}']";
+
 
 
     public SearchPageObject(AppiumDriver driver) {
@@ -25,9 +27,18 @@ public class SearchPageObject extends MainPageObject {
     }
 
     /* TEMPLATES METHODS */
+
     private static String getResultSearchElement(String substring){
         return SEARCH_RESULT_BY_SUBSTRING_TPL.replace("{SUBSTRING}", substring);
     }
+
+    private static String getSearchResultElementXpath(String searchResultTitle, String searchResultDescription){
+
+        return SEARCH_ELEMENT_TITLE_DESCRIPTION_TPL.replace("{TITLE}", searchResultTitle).replace("{DESCRIPTION}", searchResultDescription);
+
+    }
+
+
     /* TEMPLATES METHODS */
 
     public void waitForCancelButtonToAppear(){
@@ -67,7 +78,6 @@ public class SearchPageObject extends MainPageObject {
         this.waitForElementPresent(By.xpath(searchResultXpath), "Cannot find search result with substring" + substring);
 
     }
-
 
     public void clickByArticleWithSubstring(String substring){
 
@@ -132,6 +142,13 @@ public class SearchPageObject extends MainPageObject {
         return result;
     }
 
+    public void waitForElementByTitleAndDescription(String title, String description){
+
+        String elementId = getSearchResultElementXpath(title, description);
+        //System.out.println("Returned element xpath: " + elementId);
+        waitForElementPresent(By.xpath(elementId), "Cannot find element by title and description", 15);
+
+    }
 
 
 }

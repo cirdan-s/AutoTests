@@ -1,10 +1,36 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class SearchTests extends CoreTestCase {
+
+    @Test
+    public void testSearchForElementByTitleAndDescription(){
+
+        String  searchExpression = "Arsenal",
+                searchTitle1 = "Arsenal",
+                searchDescription1 = "Place for arms and ammunition",
+                searchTitle2 = "Arsenal F.C.",
+                searchDescription2 = "Association football club based in Highbury, London, England",
+                searchTitle3 = "Arsène Wenger",
+                searchDescription3 = "French footballer and manager";
+
+        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+
+        SearchPageObject.initSearchInput();
+        SearchPageObject.typeSearchLine(searchExpression);
+        SearchPageObject.waitForSearchResult(searchTitle1);
+        SearchPageObject.waitForElementByTitleAndDescription(searchTitle1, searchDescription1);
+        SearchPageObject.waitForElementByTitleAndDescription(searchTitle2, searchDescription2);
+        SearchPageObject.waitForElementByTitleAndDescription(searchTitle3, searchDescription3);
+
+    }
+
 
     @Test
     public void testSearch() {
