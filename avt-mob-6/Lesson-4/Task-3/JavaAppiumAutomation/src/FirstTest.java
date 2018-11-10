@@ -22,7 +22,7 @@ public class FirstTest {
 
         DesiredCapabilities capabilites = new DesiredCapabilities();
 
-        capabilites.setCapability("device-orientation", "PORTRAIT");
+        capabilites.setCapability("device-orientation", "PORTRAIT");  //Вводим вот эту capability для правильной ориентации экрана при старте приложения
         capabilites.setCapability("platformName", "Android");
         capabilites.setCapability("deviceName", "AndroidTestDevice");
         capabilites.setCapability("platformVersion", "8.0");
@@ -43,6 +43,8 @@ public class FirstTest {
 
     @Test
     public void testChangeScreenOrientationOnSearchResults() {
+
+        driver.rotate(ScreenOrientation.PORTRAIT);   // Перед началом теста приводим экран в нужную ориентацию
 
         waitForElementAndClick(
                 By.xpath("//*[contains(@text,'Search Wikipedia')]"),
@@ -100,7 +102,7 @@ public class FirstTest {
     public void testSearchActicleInBackgound() {
 
 
-
+        driver.rotate(ScreenOrientation.PORTRAIT); // Перед началом следующего теста приводим экран в нужную ориентацию
 
         waitForElementAndClick(
                 By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
