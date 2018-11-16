@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
-import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresent;
-
 public class ArticlePageObject extends MainPageObject {
 
     private static final String

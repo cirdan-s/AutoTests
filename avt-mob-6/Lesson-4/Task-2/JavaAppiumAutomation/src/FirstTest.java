@@ -1,7 +1,6 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import org.apache.xalan.xsltc.dom.SimpleResultTreeImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -32,8 +31,8 @@ public class FirstTest {
         capabilites.setCapability("automationName", "Appium");
         capabilites.setCapability("appPackage", "org.wikipedia");
         capabilites.setCapability("appActivity", ".main.MainActivity");
-        // capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-4/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
-        capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Task-2\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
+        capabilites.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-4/Task-2/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
+        //capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-4\\Task-2\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilites);
     }

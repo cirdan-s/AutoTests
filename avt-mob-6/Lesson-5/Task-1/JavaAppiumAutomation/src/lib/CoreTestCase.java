@@ -5,6 +5,8 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
+import java.time.Duration;
+
 import junit.framework.TestCase;
 
 public class CoreTestCase extends TestCase {
@@ -24,8 +26,8 @@ public class CoreTestCase extends TestCase {
         capabilites.setCapability("automationName", "Appium");
         capabilites.setCapability("appPackage", "org.wikipedia");
         capabilites.setCapability("appActivity", ".main.MainActivity");
-        capabilites.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-5/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
-        capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-5\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
+        capabilites.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-5/Task-1/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
+        //capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-5\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
         capabilites.setCapability("platformVersion", "7.1");
 
         driver = new AndroidDriver(new URL(AppiumURL), capabilites);
