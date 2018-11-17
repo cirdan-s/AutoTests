@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 public class MyListsPageObject extends MainPageObject {
 
     private static final String
-            NAME_OF_FOLDER_IN_LIST_TPL = "//*[@text='{FOLDER_NAME}']",
-            ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']";
+            NAME_OF_FOLDER_IN_LIST_TPL = "xpath://*[@text='{FOLDER_NAME}']",
+            ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']";
 
     public MyListsPageObject(AppiumDriver driver) {
 
@@ -36,7 +36,7 @@ public class MyListsPageObject extends MainPageObject {
 
         String folderNameXpath = getFolderXpathByName(nameOfFolder);
         this.waitForElementAndClick(
-                By.xpath(folderNameXpath),
+                folderNameXpath,
                 "Cannot find folder by name" + nameOfFolder,
                 5
         );
@@ -47,19 +47,17 @@ public class MyListsPageObject extends MainPageObject {
 
         String articleXpath = getFolderXpathByName(articleTitle);
         this.waitForElementPresent(
-                By.xpath(articleXpath),
+                articleXpath,
                 "Cannot find saved article by title " + articleTitle,
                 15
         );
     }
 
-
-
     public void waitForArticleToDisappearByTitle(String articleTitle) {
 
         String articleXpath = getFolderXpathByName(articleTitle);
         this.waitForElementNotPresent(
-                By.xpath(articleXpath),
+                articleXpath,
                 "Saved article still present with title " + articleTitle,
                 15
         );
@@ -71,13 +69,11 @@ public class MyListsPageObject extends MainPageObject {
         this.waitForArticleToAppearByTitle(articleTitle);
         String articleXpath = getSavedArticleXpathByTitle(articleTitle);
         this.swipeElementToLeft(
-                By.xpath(articleXpath),
+                articleXpath,
                 "Cannot delete saved article");
 
         this.waitForArticleToDisappearByTitle(articleTitle);
 
-
     }
-
 
 }
