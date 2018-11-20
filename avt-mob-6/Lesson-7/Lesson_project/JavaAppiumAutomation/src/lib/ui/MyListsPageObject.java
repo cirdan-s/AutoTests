@@ -3,11 +3,11 @@ package lib.ui;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 
-public class MyListsPageObject extends MainPageObject {
+abstract public class MyListsPageObject extends MainPageObject {
 
-    private static final String
-            NAME_OF_FOLDER_IN_LIST_TPL = "xpath://*[@text='{FOLDER_NAME}']",
-            ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']";
+    protected static String
+            NAME_OF_FOLDER_IN_LIST_TPL,
+            ARTICLE_BY_TITLE_TPL;
 
     public MyListsPageObject(AppiumDriver driver) {
 
@@ -37,7 +37,7 @@ public class MyListsPageObject extends MainPageObject {
         String folderNameXpath = getFolderXpathByName(nameOfFolder);
         this.waitForElementAndClick(
                 folderNameXpath,
-                "Cannot find folder by name" + nameOfFolder,
+                "Cannot find folder by name: " + nameOfFolder,
                 5
         );
 

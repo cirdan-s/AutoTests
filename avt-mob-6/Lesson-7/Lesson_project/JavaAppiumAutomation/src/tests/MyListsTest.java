@@ -7,6 +7,8 @@ import lib.ui.MyListsPageObject;
 import lib.ui.NavigationUI;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.ArticlePageObjectFactory;
+import lib.ui.factories.MyListsPageObjectFactory;
+import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
@@ -31,18 +33,18 @@ public class MyListsTest extends CoreTestCase {
         if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
         } else {
-
+            ArticlePageObject.addArticleToMySaved();
         }
-
-        ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
         ArticlePageObject.closeArticle();
 
-
-        NavigationUI NavigationUI = new NavigationUI(driver);
+        NavigationUI NavigationUI = NavigationUIFactory.get(driver);
         NavigationUI.clickMyLists();
 
-        MyListsPageObject MyListPageObject = new MyListsPageObject(driver);
-        MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+        MyListsPageObject MyListPageObject = MyListsPageObjectFactory.get(driver);
+        if (Platform.getInstance().isAndroid()) {
+            MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+        }
+
         MyListPageObject.swipeByArticleToDelete(articleTitle);
 
     }

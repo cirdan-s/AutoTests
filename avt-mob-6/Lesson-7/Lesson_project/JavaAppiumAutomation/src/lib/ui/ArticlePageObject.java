@@ -14,7 +14,8 @@ abstract public class ArticlePageObject extends MainPageObject {
             ADD_TO_MY_LIST_OVERLAY,
             MY_LIST_INPUT,
             MY_LIST_OK_BUTTON,
-            CLOSE_ARTICLE_BUTTON;
+            CLOSE_ARTICLE_BUTTON,
+            CLOSE_OVERLAY_BUTTON;
 
 
 
@@ -103,19 +104,32 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     }
 
-    public void addArcticleToMySaved() {
+    public void addArticleToMySaved() {
 
-
+        this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON, "Cannot add article to reading list", 5);
 
     }
 
     public void closeArticle() {
 
-        this.waitForElementAndClick(
-                CLOSE_ARTICLE_BUTTON,
-                "Cannot close article, cannot find X link",
-                5
-        );
+        if (Platform.getInstance().isAndroid()){
+            this.waitForElementAndClick(
+                    CLOSE_ARTICLE_BUTTON,
+                    "Cannot close article, cannot find X link",
+                    5
+            );
+        } else {
+            this.waitForElementAndClick(
+                    CLOSE_OVERLAY_BUTTON,
+                    "Cannot close iOS overlay 'Sync your saved articles'",
+                    5
+            );
+            this.waitForElementAndClick(
+                    CLOSE_ARTICLE_BUTTON,
+                    "Cannot close article, cannot find X link",
+                    5
+            );
+        }
 
     }
 

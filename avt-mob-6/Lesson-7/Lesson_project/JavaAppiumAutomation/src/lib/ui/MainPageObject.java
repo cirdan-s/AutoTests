@@ -9,7 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import lib.Platform;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -164,12 +164,17 @@ public class MainPageObject {
         int middleY = (upperY + lowerY) / 2;
 
         TouchAction action = new TouchAction(driver);
-        action
-                .press(rightX, middleY)
-                .waitAction(500)
-                .moveTo(leftX, middleY)
-                .release()
-                .perform();
+        action.press(rightX, middleY);
+        action.waitAction(500);
+        if (Platform.getInstance().isAndroid()){
+                action.moveTo(leftX, middleY);
+        } else {
+            int offsetX = (-1 * element.getSize().getWidth());
+            action.moveTo(offsetX, 0);
+        }
+
+        action.release();
+        action.perform();
     }
 
     public int getAmountOfElements(String locator) {
