@@ -19,13 +19,13 @@ public class MyListsTest extends CoreTestCase {
     @Test
     public void testSaveFirstArticleToMyList() {
 
-        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);;
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
         SearchPageObject.clickByArticleWithSubstring("Object-oriented programming language");
 
-        ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);;
+        ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
 
         String articleTitle = ArticlePageObject.getArticleTitle();
@@ -45,7 +45,61 @@ public class MyListsTest extends CoreTestCase {
             MyListPageObject.openFolderByName(NAME_OF_FOLDER);
         }
 
-        MyListPageObject.swipeByArticleToDelete("Java (programming language)");
+        MyListPageObject.swipeByArticleToDelete(articleTitle);
+
+    }
+
+    @Test
+    public void testSaveTwoArticleToMyListAndDeleteOne() {
+
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
+        ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
+        String searchLineFirst = "Java",
+                searchStringFirst = "Object-oriented programming language",
+                articleTitle = "Java (programming language)",
+                searchLineSecond = "Chivas Regal",
+                searchStringSecond = "Blended Scotch Whisky produced by Chivas Brothers";
+
+        SearchPageObject.initSearchInput();
+        SearchPageObject.typeSearchLine(searchLineFirst);
+        SearchPageObject.clickByArticleWithSubstring(searchStringFirst);
+
+        if (Platform.getInstance().isAndroid()) {
+            ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
+        } else {
+            ArticlePageObject.addArticleToMySaved();
+        }
+
+        ArticlePageObject.closeArticle();
+
+        SearchPageObject.initSearchInput();
+        SearchPageObject.typeSearchLine(searchLineSecond);
+        SearchPageObject.clickByArticleWithSubstring(searchStringSecond);
+
+        String secondArticleTitle = ArticlePageObject.waitForTitleAndGetText();
+
+        ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
+        ArticlePageObject.closeArticle();
+
+        NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+        NavigationUI.clickMyLists();
+
+        MyListsPageObject MyListPageObject = MyListsPageObjectFactory.get(driver);
+        MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+
+        MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+        MyListPageObject.swipeByArticleToDelete(articleTitle);
+
+        MyListPageObject.openArticleInListByName(secondArticleTitle);
+
+        String articleTitleInList = ArticlePageObject.waitForTitleAndGetText();
+        System.out.println("Заголовок статьи в списке: " + articleTitleInList);
+
+
+        ArticlePageObject.assertCompareArticlesTitle(secondArticleTitle, secondArticleTitle);
+
+        System.out.println("Actual result: " + secondArticleTitle);
+        System.out.println("Expected result: " + articleTitleInList);
 
     }
 

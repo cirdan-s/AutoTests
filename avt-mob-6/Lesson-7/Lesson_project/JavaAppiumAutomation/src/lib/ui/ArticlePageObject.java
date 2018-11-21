@@ -1,7 +1,10 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.CoreTestCase;
 import lib.Platform;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 abstract public class ArticlePageObject extends MainPageObject {
@@ -15,6 +18,7 @@ abstract public class ArticlePageObject extends MainPageObject {
             MY_LIST_INPUT,
             MY_LIST_OK_BUTTON,
             CLOSE_ARTICLE_BUTTON,
+            TITLE_XPATH,
             CLOSE_OVERLAY_BUTTON;
 
 
@@ -130,6 +134,23 @@ abstract public class ArticlePageObject extends MainPageObject {
                     5
             );
         }
+
+    }
+
+    public String waitForTitleAndGetText() {
+
+        CoreTestCase.waitInSeconds(5);
+        WebElement element = waitForElementPresent(TITLE_XPATH, "Cannot find article title", 10);
+        return element.getAttribute("text");
+    }
+
+    public void assertCompareArticlesTitle(String expectedTitle, String actualTitle){
+
+        Assert.assertEquals(
+                "We see unexpected title",
+                expectedTitle,
+                actualTitle
+        );
 
     }
 

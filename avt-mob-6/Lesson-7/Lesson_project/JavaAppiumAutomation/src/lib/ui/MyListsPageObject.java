@@ -27,8 +27,6 @@ abstract public class MyListsPageObject extends MainPageObject {
         return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", articleName);
 
     }
-
-
     /* TEMPLATES METHODS */
 
 
@@ -79,6 +77,19 @@ abstract public class MyListsPageObject extends MainPageObject {
         }
 
         this.waitForArticleToDisappearByTitle(articleTitle);
+    }
+
+
+    public void openArticleInListByName(String articleName){
+
+        String articleTitleXpath = getSavedArticleXpathByTitle(articleName);
+
+        this.waitForElementAndClick(
+                articleTitleXpath,
+                "Cannot find article by name in My List " + articleName,
+                5
+        );
+
     }
 
 }

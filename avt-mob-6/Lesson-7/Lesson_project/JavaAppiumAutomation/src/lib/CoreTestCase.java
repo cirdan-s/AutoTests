@@ -52,4 +52,15 @@ public class CoreTestCase extends TestCase {
 
     }
 
+    public static void waitInSeconds(int secondsToWait){
+
+        int waitIntervalMillis = secondsToWait * 1000;
+        try {
+            Thread.sleep(waitIntervalMillis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
