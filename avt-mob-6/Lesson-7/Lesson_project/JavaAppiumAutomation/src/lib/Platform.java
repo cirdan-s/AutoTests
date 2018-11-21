@@ -77,7 +77,7 @@ public class Platform {
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone SE");
         capabilities.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-7/Lesson_project/JavaAppiumAutomation/apks/Wikipedia.app"); // MacOS
-        capabilities.setCapability("platformVersion", "11.4");
+        capabilities.setCapability("platformVersion", "11.3");
 
         return capabilities;
 

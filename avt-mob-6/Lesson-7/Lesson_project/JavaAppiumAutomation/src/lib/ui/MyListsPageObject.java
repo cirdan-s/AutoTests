@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
 import org.openqa.selenium.By;
 
 abstract public class MyListsPageObject extends MainPageObject {
@@ -45,9 +46,9 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void waitForArticleToAppearByTitle(String articleTitle) {
 
-        String articleXpath = getFolderXpathByName(articleTitle);
+        String articleXpath = getSavedArticleXpathByTitle(articleTitle);
         this.waitForElementPresent(
-                articleXpath,
+                "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]",
                 "Cannot find saved article by title " + articleTitle,
                 15
         );
@@ -55,9 +56,9 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void waitForArticleToDisappearByTitle(String articleTitle) {
 
-        String articleXpath = getFolderXpathByName(articleTitle);
+        String articleXpath = getSavedArticleXpathByTitle(articleTitle);
         this.waitForElementNotPresent(
-                articleXpath,
+                "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]",
                 "Saved article still present with title " + articleTitle,
                 15
         );
@@ -67,13 +68,17 @@ abstract public class MyListsPageObject extends MainPageObject {
     public void swipeByArticleToDelete(String articleTitle) {
 
         this.waitForArticleToAppearByTitle(articleTitle);
-        String articleXpath = getSavedArticleXpathByTitle(articleTitle);
+       // String articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        String articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
         this.swipeElementToLeft(
                 articleXpath,
                 "Cannot delete saved article");
 
-        this.waitForArticleToDisappearByTitle(articleTitle);
+        if (Platform.getInstance().isIOS()) {
+            this.clickElementToTheRightUpperCorner(articleXpath, "Cannot find saved article");
+        }
 
+        this.waitForArticleToDisappearByTitle(articleTitle);
     }
 
 }

@@ -153,6 +153,24 @@ public class MainPageObject {
 
     }
 
+    public void clickElementToTheRightUpperCorner(String locator, String errorMessage){
+
+        WebElement element = this.waitForElementPresent(locator + "/..", errorMessage);
+        int rightX = element.getLocation().getX();
+        int upperY = element.getLocation().getY();
+        int lowerY = upperY + element.getSize().getHeight();
+        int middleY = (upperY + lowerY) / 2;
+        int width = element.getSize().getWidth();
+
+        int pointToClickX = (rightX + width) - 3;
+        int pointToClickY = middleY;
+
+        TouchAction action = new TouchAction(driver);
+        action.tap(pointToClickX, pointToClickY).perform();
+
+    }
+
+
     public void swipeElementToLeft(String locator, String errorMessage) {
 
         WebElement element = waitForElementPresent(locator, errorMessage, 10);

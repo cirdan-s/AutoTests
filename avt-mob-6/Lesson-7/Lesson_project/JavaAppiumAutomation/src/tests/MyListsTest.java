@@ -45,7 +45,7 @@ public class MyListsTest extends CoreTestCase {
             MyListPageObject.openFolderByName(NAME_OF_FOLDER);
         }
 
-        MyListPageObject.swipeByArticleToDelete(articleTitle);
+        MyListPageObject.swipeByArticleToDelete("Java (programming language)");
 
     }
 
