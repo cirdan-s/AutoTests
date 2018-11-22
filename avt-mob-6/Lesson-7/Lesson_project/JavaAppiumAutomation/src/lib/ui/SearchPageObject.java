@@ -11,7 +11,8 @@ abstract public class SearchPageObject extends MainPageObject {
             SEARCH_CANCEL_BUTTON,
             SEARCH_RESULT_BY_SUBSTRING_TPL,
             SEARCH_RESULT_ELEMENT,
-            EMPTY_RESULT_RESULT_ELEMENT;
+            EMPTY_RESULT_RESULT_ELEMENT,
+            CLEAR_SEARCH_BUTTON;
 
 
     public SearchPageObject(AppiumDriver driver) {
@@ -49,6 +50,13 @@ abstract public class SearchPageObject extends MainPageObject {
 
         this.waitForElementAndClick(SEARCH_INIT_ELEMENT,"Cannot find and click search init element", 5);
         this.waitForElementPresent(SEARCH_INPUT,"Cannot find search input after clicking search init element");
+    }
+
+    public void clearSearchInput(){
+
+        this.waitForElementAndClick(SEARCH_INIT_ELEMENT,"Cannot find and click search init element", 5);
+        this.waitForElementAndClick(CLEAR_SEARCH_BUTTON, "Cannot click clear search button (X)", 5);
+
     }
 
     public void typeSearchLine(String searchLine){

@@ -73,13 +73,20 @@ public class MyListsTest extends CoreTestCase {
         ArticlePageObject.closeArticle();
 
         SearchPageObject.initSearchInput();
+        if (Platform.getInstance().isIOS()){
+            SearchPageObject.clearSearchInput();
+        }
+
         SearchPageObject.typeSearchLine(searchLineSecond);
         SearchPageObject.clickByArticleWithSubstring(searchStringSecond);
 
         String secondArticleTitle = ArticlePageObject.waitForTitleAndGetText();
 
-        ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
-        ArticlePageObject.closeArticle();
+        if (Platform.getInstance().isAndroid()) {
+            ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
+        } else {
+            ArticlePageObject.addArticleToMySaved();
+        }
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
         NavigationUI.clickMyLists();
