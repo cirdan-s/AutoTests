@@ -31,7 +31,7 @@ public class MyListsTest extends CoreTestCase {
         String articleTitle = ArticlePageObject.getArticleTitle();
 
         if (Platform.getInstance().isAndroid()) {
-            ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
+            ArticlePageObject.addArticleToMyListForTheFirstTime(NAME_OF_FOLDER);
         } else {
             ArticlePageObject.addArticleToMySaved();
         }
@@ -65,22 +65,23 @@ public class MyListsTest extends CoreTestCase {
         SearchPageObject.clickByArticleWithSubstring(searchStringFirst);
 
         if (Platform.getInstance().isAndroid()) {
-            ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
+            ArticlePageObject.addArticleToMyListForTheFirstTime(NAME_OF_FOLDER);
         } else {
             ArticlePageObject.addArticleToMySaved();
         }
 
         ArticlePageObject.closeArticle();
 
-        SearchPageObject.initSearchInput();
         if (Platform.getInstance().isIOS()){
-            SearchPageObject.clearSearchInput();
+        //    SearchPageObject.clearSearchInput();
+            this.backgrounApp(10);
         }
 
+        SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine(searchLineSecond);
         SearchPageObject.clickByArticleWithSubstring(searchStringSecond);
 
-        String secondArticleTitle = ArticlePageObject.waitForTitleAndGetText();
+        String secondArticleTitle = ArticlePageObject.getArticleTitle();
 
         if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.addArticleToMyList(NAME_OF_FOLDER);
@@ -89,19 +90,38 @@ public class MyListsTest extends CoreTestCase {
         }
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
-        NavigationUI.clickMyLists();
+        if (Platform.getInstance().isAndroid()) {
+            ArticlePageObject.closeArticle();
+            NavigationUI.clickMyLists();
+        }
 
         MyListsPageObject MyListPageObject = MyListsPageObjectFactory.get(driver);
-        MyListPageObject.openFolderByName(NAME_OF_FOLDER);
 
-        MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+        if (Platform.getInstance().isAndroid()) {
+            MyListPageObject.openFolderByName(NAME_OF_FOLDER);
+        } else {
+            ArticlePageObject.closeArticleNoPopup();
+            CoreTestCase.waitInSeconds(5);
+            NavigationUI.clickMyLists();
+        }
+
         MyListPageObject.swipeByArticleToDelete(articleTitle);
 
-        MyListPageObject.openArticleInListByName(secondArticleTitle);
+        if (Platform.getInstance().isAndroid()) {
+            MyListPageObject.openArticleInListByName(secondArticleTitle);
+        } else {
+            SearchPageObject.clickByArticleWithSubstring(searchStringSecond);
+        }
 
-        String articleTitleInList = ArticlePageObject.waitForTitleAndGetText();
+        String articleTitleInList;
+
+        if (Platform.getInstance().isAndroid()) {
+            articleTitleInList = ArticlePageObject.waitForTitleAndGetText();
+        } else {
+            articleTitleInList = ArticlePageObject.getArticleTitle();
+        }
+
         System.out.println("Заголовок статьи в списке: " + articleTitleInList);
-
 
         ArticlePageObject.assertCompareArticlesTitle(secondArticleTitle, secondArticleTitle);
 

@@ -44,9 +44,16 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void waitForArticleToAppearByTitle(String articleTitle) {
 
-        String articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        String articleXpath;
+
+        if (Platform.getInstance().isAndroid()) {
+            articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        }
+        else {
+            articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
+        }
         this.waitForElementPresent(
-                "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]",
+                articleXpath,
                 "Cannot find saved article by title " + articleTitle,
                 15
         );
@@ -66,8 +73,14 @@ abstract public class MyListsPageObject extends MainPageObject {
     public void swipeByArticleToDelete(String articleTitle) {
 
         this.waitForArticleToAppearByTitle(articleTitle);
-       // String articleXpath = getSavedArticleXpathByTitle(articleTitle);
-        String articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
+        String articleXpath = "";
+
+        if (Platform.getInstance().isAndroid()) {
+            articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        } else if (Platform.getInstance().isIOS()) {
+            articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
+        }
+
         this.swipeElementToLeft(
                 articleXpath,
                 "Cannot delete saved article");

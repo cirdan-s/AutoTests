@@ -62,7 +62,7 @@ public class Platform {
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "org.wikipedia");
         capabilities.setCapability("appActivity", ".main.MainActivity");
-        capabilities.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-6/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
+        capabilities.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-7/Lesson_project/JavaAppiumAutomation/apks/org.wikipedia.apk"); // MacOS
         // capabilites.setCapability("app","E:\\Avt-mob-6\\AutoTests\\avt-mob-6\\Lesson-5\\Lesson_project\\JavaAppiumAutomation\\apks\\org.wikipedia.apk"); // Windows
         capabilities.setCapability("platformVersion", "7.1");
 
@@ -76,7 +76,8 @@ public class Platform {
 
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("deviceName", "iPhone SE");
-        capabilities.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-7/Lesson_project/JavaAppiumAutomation/apks/Wikipedia.app"); // MacOS
+        //capabilities.setCapability("app", "/Users/apalnov/Desktop/AutoTests/avt-mob-6/Lesson-7/Lesson_project/JavaAppiumAutomation/apks/Wikipedia.app"); // Mac mini
+        capabilities.setCapability("app", "/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-7/Lesson_project/JavaAppiumAutomation/apks/Wikipedia.app"); // MBP
         capabilities.setCapability("platformVersion", "11.3");
 
         return capabilities;

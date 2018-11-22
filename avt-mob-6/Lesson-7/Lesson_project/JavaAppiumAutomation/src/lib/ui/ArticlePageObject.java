@@ -4,13 +4,13 @@ import io.appium.java_client.AppiumDriver;
 import lib.CoreTestCase;
 import lib.Platform;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 abstract public class ArticlePageObject extends MainPageObject {
 
     protected static String
             TITLE,
+            TITLE_OF_SECOND_ARTICLE,
             FOOTER_ELEMENT,
             OPTIONS_BUTTON,
             OPTIONS_ADD_TO_MY_LIST_BUTTON,
@@ -18,9 +18,17 @@ abstract public class ArticlePageObject extends MainPageObject {
             MY_LIST_INPUT,
             MY_LIST_OK_BUTTON,
             CLOSE_ARTICLE_BUTTON,
-            TITLE_XPATH,
-            CLOSE_OVERLAY_BUTTON;
+            TITLE_ID,
+            CLOSE_OVERLAY_BUTTON,
+            MY_LIST_NAME_TPL;
 
+    /* TEMPLATES METHODS */
+    private static String getNameOfFolderXpath(String nameOfFolder){
+
+        return MY_LIST_NAME_TPL.replace("{nameOfFolder}", nameOfFolder);
+
+    }
+    /* TEMPLATES METHODS */
 
 
     public ArticlePageObject(AppiumDriver driver) {
@@ -31,7 +39,7 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     public WebElement waitForTitleElement(){
 
-       return this.waitForElementPresent(TITLE, "Cannot find article title on page", 15);
+        return this.waitForElementPresent(TITLE, "Cannot find article title on page", 15);
 
     }
 
@@ -63,8 +71,9 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     }
 
-    public void addArticleToMyList(String nameOfFolder) {
+    public void addArticleToMyListForTheFirstTime(String nameOfFolder) {
 
+        CoreTestCase.waitInSeconds(5);
         this.waitForElementAndClick(
                 OPTIONS_BUTTON,
                 "Cannot find button to open article options",
@@ -108,6 +117,35 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     }
 
+    public void addArticleToMyList(String nameOfFolder) {
+
+        String nameOfFolderXpath = getNameOfFolderXpath(nameOfFolder);
+
+        this.waitForElementAndClick(
+                OPTIONS_BUTTON,
+                "Cannot find button to open article options",
+                5
+        );
+
+        this.waitForElementPresent(
+                OPTIONS_ADD_TO_MY_LIST_BUTTON,
+                "Add to my list option is not found"
+        );
+
+        this.waitForElementAndClick(
+                OPTIONS_ADD_TO_MY_LIST_BUTTON,
+                "Cannot find options to add article to reading list",
+                5
+        );
+
+        this.waitForElementAndClick(
+                nameOfFolderXpath,
+                "Cannot click on folder with name: " + nameOfFolder,
+                5
+        );
+
+    }
+
     public void addArticleToMySaved() {
 
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON, "Cannot add article to reading list", 5);
@@ -137,10 +175,20 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     }
 
+    public void closeArticleNoPopup() {
+
+            this.waitForElementAndClick(
+                    CLOSE_ARTICLE_BUTTON,
+                    "Cannot close article, cannot find X link",
+                    5
+            );
+
+    }
+
     public String waitForTitleAndGetText() {
 
         CoreTestCase.waitInSeconds(5);
-        WebElement element = waitForElementPresent(TITLE_XPATH, "Cannot find article title", 10);
+        WebElement element = waitForElementPresent(TITLE, "Cannot find article title", 10);
         return element.getAttribute("text");
     }
 

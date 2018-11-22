@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="071eeeaa-7d54-428c-a3f5-5f77556a7bb1" name="Default Changelist" comment="" />
+    <list default="true" id="071eeeaa-7d54-428c-a3f5-5f77556a7bb1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/JavaAppiumAutomation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaAppiumAutomation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/java_client_4_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/java_client_4_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/junit_4_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/junit_4_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/selenium_server_standalone_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/selenium_server_standalone_3_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSArticlePageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSSearchPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSSearchPageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/tests/MyListsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/tests/MyListsTest.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,17 +39,49 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-278251760">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/FirstTest.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/tests/SearchTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-678" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/tests/MyListsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="70" column="44" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="668">
+              <caret line="136" column="5" lean-forward="true" selection-start-line="109" selection-start-column="4" selection-end-line="136" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -46,13 +89,13 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="52" />
     <option name="y" value="23" />
-    <option name="width" value="1644" />
-    <option name="height" value="1057" />
+    <option name="width" value="1388" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -66,28 +109,41 @@
         <subPane>
           <expand>
             <path>
-              <item name="Lesson_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lesson_project" type="462c0819:PsiDirectoryNode" />
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Lesson_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lesson_project" type="462c0819:PsiDirectoryNode" />
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
               <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Lesson_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lesson_project" type="462c0819:PsiDirectoryNode" />
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
               <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Lesson_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Lesson_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Task-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Task-2" type="462c0819:PsiDirectoryNode" />
+              <item name="JavaAppiumAutomation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -100,9 +156,10 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539762752319" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -167,19 +224,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="23" width="1644" height="1057" extended-state="0" />
+    <frame x="52" y="23" width="1388" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496879" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25334322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32953367" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -187,27 +241,47 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32953367" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32953367" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../../.." />
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/FirstTest.java">
+    <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/FirstTest.java" />
+    <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/tests/SearchTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-678" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/tests/MyListsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="70" column="44" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="136" column="5" lean-forward="true" selection-start-line="109" selection-start-column="4" selection-end-line="136" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -268,6 +342,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -275,6 +350,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>selenium-server-standalone-3.4.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
