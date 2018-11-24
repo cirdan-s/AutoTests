@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ecce79e-442e-4157-b457-3395173c0b19" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/Lesson_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Lesson_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/java_client_4_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/java_client_4_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/junit_4_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/junit_4_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/selenium_server_standalone_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/libraries/selenium_server_standalone_3_4_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/Platform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ArticlePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/MyListsPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/MyListsPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/android/AndroidArcticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/android/AndroidArticlePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/factories/ArticlePageObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/factories/ArticlePageObjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSArticlePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSSearchPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/lib/ui/ios/iOSSearchPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/tests/MyListsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lesson-7/Lesson_project/JavaAppiumAutomation/src/tests/MyListsTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -274,6 +259,7 @@
     <session id="545178630">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -410,7 +396,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="52" />
     <option name="y" value="23" />
     <option name="width" value="1388" />
@@ -647,7 +633,8 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="23" width="1388" height="877" extended-state="1" />
+    <frame x="52" y="23" width="1388" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19390787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
