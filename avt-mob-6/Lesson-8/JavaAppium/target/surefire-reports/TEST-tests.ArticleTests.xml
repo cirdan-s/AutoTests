@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="0" failures="0" name="tests.ArticleTests" time="0" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="tests.ArticleTests" time="43.228" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="ArticleTests#TestSuite"/>
+    <property name="test" value="ArticleTests#testCompareArticleTitle"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/Users/apalnov/Documents/AutoTests/avt-mob-6/Lesson-8/JavaAppium"/>
     <property name="java.runtime.version" value="1.8.0_181-b13"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ArticleTests#TestSuite test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ArticleTests#testCompareArticleTitle test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="ru"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -66,4 +66,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+  <testcase classname="tests.ArticleTests" name="testCompareArticleTitle" time="43.228"/>
 </testsuite>
