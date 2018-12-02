@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.CoreTestCase;
 import lib.Platform;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -9,7 +10,8 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     protected static String
             NAME_OF_FOLDER_IN_LIST_TPL,
-            ARTICLE_BY_TITLE_TPL;
+            ARTICLE_BY_TITLE_TPL,
+            REMOVE_FROM_SAVED_BUTTON;
 
     public MyListsPageObject(RemoteWebDriver driver) {
 
@@ -26,6 +28,12 @@ abstract public class MyListsPageObject extends MainPageObject {
     private static String getSavedArticleXpathByTitle(String articleName) {
 
         return ARTICLE_BY_TITLE_TPL.replace("{TITLE}", articleName);
+
+    }
+
+    private static String getRemoveButtonByTitle(String articleName) {
+
+        return REMOVE_FROM_SAVED_BUTTON.replace("{TITLE}", articleName);
 
     }
     /* TEMPLATES METHODS */
@@ -45,9 +53,9 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void waitForArticleToAppearByTitle(String articleTitle) {
 
-        String articleXpath;
+        String articleXpath="";
 
-        if (Platform.getInstance().isAndroid()) {
+        if (Platform.getInstance().isAndroid() || Platform.getInstance().isMw()) {
             articleXpath = getSavedArticleXpathByTitle(articleTitle);
         }
         else {
@@ -62,9 +70,15 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void waitForArticleToDisappearByTitle(String articleTitle) {
 
-        String articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        String articleXpath="";
+        if (Platform.getInstance().isAndroid() || Platform.getInstance().isMw()) {
+            articleXpath = getSavedArticleXpathByTitle(articleTitle);
+        }
+        else {
+            articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
+        }
         this.waitForElementNotPresent(
-                "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]",
+                articleXpath,
                 "Saved article still present with title " + articleTitle,
                 15
         );
@@ -73,7 +87,7 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void swipeByArticleToDelete(String articleTitle) {
 
-        this.waitForArticleToAppearByTitle(articleTitle);
+        //this.waitForArticleToAppearByTitle(articleTitle);
         String articleXpath = "";
 
         if (Platform.getInstance().isAndroid()) {
@@ -82,12 +96,29 @@ abstract public class MyListsPageObject extends MainPageObject {
             articleXpath = "xpath://XCUIElementTypeLink[contains(@name, 'Java (programming language)')][contains(@name, 'Object-oriented programming language')]";
         }
 
-        this.swipeElementToLeft(
-                articleXpath,
-                "Cannot delete saved article");
+        if (Platform.getInstance().isIOS() || Platform.getInstance().isAndroid()) {
+            this.swipeElementToLeft(
+                    articleXpath,
+                    "Cannot delete saved article");
+        } else {
+            String removeLocator = getRemoveButtonByTitle(articleTitle);
+            //String removeLocator = "xpath://div[@title='Stop watching']";
+            this.waitForElementAndClick(
+                    removeLocator,
+                    "Cannot click button to remove article from saved",
+                    10
+            );
+        }
+
 
         if (Platform.getInstance().isIOS()) {
             this.clickElementToTheRightUpperCorner(articleXpath, "Cannot find saved article");
+        }
+
+        if (Platform.getInstance().isMw()) {
+            System.out.println("Waiting before page refresh");
+            CoreTestCase.waitInSeconds(5);
+            driver.navigate().refresh();
         }
 
         this.waitForArticleToDisappearByTitle(articleTitle);
