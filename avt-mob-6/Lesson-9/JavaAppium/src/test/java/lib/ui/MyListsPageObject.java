@@ -137,4 +137,19 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     }
 
+    public void clearMyListsAfterTest(String articleTitle) {
+
+        String removeLocator = getRemoveButtonByTitle(articleTitle);
+        //String removeLocator = "xpath://div[@title='Stop watching']";
+        this.waitForElementAndClick(
+                removeLocator,
+                "Cannot click button to remove article from saved",
+                10
+        );
+
+        driver.navigate().refresh();
+        this.waitForArticleToDisappearByTitle(articleTitle);
+
+    }
+
 }

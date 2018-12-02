@@ -169,14 +169,16 @@ public class MyListsTest extends CoreTestCase {
             articleTitleInList = ArticlePageObject.mwGetArticleTitleInWatchlist();
         }
 
-
-
         System.out.println("Заголовок статьи в списке: " + articleTitleInList);
 
         ArticlePageObject.assertCompareArticlesTitle(secondArticleTitle, secondArticleTitle);
 
         System.out.println("Actual result: " + secondArticleTitle);
         System.out.println("Expected result: " + articleTitleInList);
+
+        if (Platform.getInstance().isMw()) {
+            MyListPageObject.clearMyListsAfterTest(secondArticleTitle);
+        }
 
     }
 
